@@ -1,0 +1,64 @@
+Sakurako and Kosuke decided to play some games with a dot on a coordinate line. The dot is currently located in position 𝑥=0
+. They will be taking turns, and Sakurako will be the one to start.
+
+On the 𝑖
+-th move, the current player will move the dot in some direction by 2⋅𝑖−1
+ units. Sakurako will always be moving the dot in the negative direction, whereas Kosuke will always move it in the positive direction.
+
+In other words, the following will happen:
+
+Sakurako will change the position of the dot by −1
+, 𝑥=−1
+ now
+Kosuke will change the position of the dot by 3
+, 𝑥=2
+ now
+Sakurako will change the position of the dot by −5
+, 𝑥=−3
+ now
+⋯
+They will keep on playing while the absolute value of the coordinate of the dot does not exceed 𝑛
+. More formally, the game continues while −𝑛≤𝑥≤𝑛
+. It can be proven that the game will always end.
+
+Your task is to determine who will be the one who makes the last turn.
+
+Input
+The first line contains one integer 𝑡
+ (1≤𝑡≤100
+) — the number of games that Sakurako and Kosuke played.
+
+Each game is described by one number 𝑛
+ (1≤𝑛≤100
+) — the number that defines the condition when the game ends.
+
+Output
+For each of the 𝑡
+ games, output a line with the result of that game. If Sakurako makes the last turn, output "Sakurako" (without quotes); else output "Kosuke".
+
+Example
+InputCopy
+4
+1
+6
+3
+98
+OutputCopy
+Kosuke
+Sakurako
+Kosuke
+Sakurako
+#python code:
+t = int(input())  
+for i in range(t):
+    n = int(input())
+    x = 0 
+    for j in range(1,n+1): 
+            if j % 2 == 1: 
+                x -= (2 * j - 1)
+            else: 
+                x = (2 * j - 1)
+    if x >= 0:  
+        print("Sakurako")
+    else: 
+        print("Kosuke")
