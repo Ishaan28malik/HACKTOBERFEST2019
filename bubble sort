@@ -1,0 +1,20 @@
+def bubble_sort_swaps(arr, ascending=True):
+    n = len(arr)
+    swaps = 0
+    for i in range(n):
+        for j in range(0, n-i-1):
+            if (ascending and arr[j] > arr[j+1]) or (not ascending and arr[j] < arr[j+1]):
+                arr[j], arr[j+1] = arr[j+1], arr[j]  # Swap
+                swaps += 1
+    return swaps
+
+# Input reading
+N = int(input())  # Number of elements
+arr = list(map(int, input().split()))  # Array elements
+
+# Count swaps for both ascending and descending order
+ascending_swaps = bubble_sort_swaps(arr.copy(), ascending=True)
+descending_swaps = bubble_sort_swaps(arr.copy(), ascending=False)
+
+# Output the minimum number of swaps
+print(min(ascending_swaps, descending_swaps))
